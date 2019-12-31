@@ -10,7 +10,7 @@ Beyond teaching the curriculum, your responsibilites are as follows:
 
 * Remain current on industry standards and best practices. 
 
-** This includes knowledge of popular frameworks
+⋅⋅* This includes knowledge of popular frameworks
 
 
 ### Who we cater to
