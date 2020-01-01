@@ -33,5 +33,31 @@ The curriculum is split into two parts. The first 16 days concentrate on fronten
 
 ### Frontend - Days 1-16
 
-* Day 1-3: HTML
-	* HTML can be covered
+Topics 
+
+* HTML (without CSS): 1-3 days
+	* Don't spend more than 3 days but spend a minimum of 1 day covering basics
+* CSS: 1-2 days
+	* No more than 2 days concentrating on HTML/CSS before introducing JavaScript
+* Frontend JavaScript: 8-13
+* A frontend framework: 1-4 days
+	* This curriculum specifies topics but popular frameworks change over time. Stay current with which frameworks are popular and select one that is suitable for your class. Current options include:
+
+		* Angular 1
+		* Angular 6
+		* React
+		* jQuery
+
+### Backend - Days 17-31
+
+* NodeJS: 2 days
+* MongoDB: 1 day
+* MEAN/MERN stack apps with RESTful API: Minimum 5 days
+* Test Driven Development (optional)
+	* Use chai/mocha or other popular test framework
+* Task automation (optional)
+	* Use grunt, gulp or other popular automation framework
+
+### Final Project and Whiteboard Interview - Day 32
+
+* The final day should begin with presentations. Once presentations are done, bring students one at a time into the room for their whiteboard interview. Expect each session to take 1 hour. Depending on the size of the class, this may have to be done over multiple days.
