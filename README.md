@@ -34,4 +34,4 @@ The curriculum is split into two parts. The first 16 days concentrate on fronten
 ### Frontend - Days 1-16
 
 * Day 1-3: HTML
-** HTML can be covered
+	* HTML can be covered
