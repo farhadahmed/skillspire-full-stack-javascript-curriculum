@@ -12,6 +12,8 @@ Beyond teaching the curriculum, your responsibilites are as follows:
 * Use Canvas to assign homework
 * Use Canvas to grade homework (If you don't have time to grade assignments, this must be approved by Yasmin prior to the course starting. In some situations, a TA may be able to handle the grading for you.)
 * Use Canvas to take student attendance.
+* Use Slack to communicate with students and answer questions outside class
+	* If you're sick or class is cancelled due to a holiday, inform students a day 	before
 
 
 ### Who we cater to
