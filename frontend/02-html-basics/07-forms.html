@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!-- 
+	Discuss forms, labels, inputs, and related attributes
+ -->
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form>
+		<label>Enter your name: </label>
+		<input type="text" id="users-name" maxlength="30" required>
+		<label>Enter your password: </label>
+		<input type="password" id="users-password" maxlength="50">
+		<button type="submit">enter</button>
+	</form>
+
+
+	<form>
+		<p>Enter a status:</p>
+		<textarea id="status" cols="30" rows="5"></textarea>
+	</form>
+
+
+	<form>
+		<p>What's your favorite band?</p>
+		<input type="radio" name="band" value="System of a Down"> System of a Down
+		<input type="radio" name="band" value="The Beatles"> The Beatles
+		<input type="radio" name="band" value="Metallica"> Metallica
+	</form>
+
+
+	<form>
+		<p>Select all your current skills.</p>
+		<input type="checkbox" value="js">JS
+		<input type="checkbox" value="css">CSS
+		<input type="checkbox" value="html">HTML
+	</form>
+
+
+	<form>
+		<p>What OS do you prefer?</p>
+		<select>
+			<option>iOS</option>
+			<option>Windows</option>
+			<option>Linux</option>
+		</select>
+	</form>
+</body>
+</html>

@@ -13,8 +13,11 @@ Intros
 
 - Make sure students' dev environments are set up. Expect that none of them have anything set up. Have students do the following:
 
-	- Install a well known code editor if your choice
+	- Install a well known IDE if your choice
 	- Create an account in GitHub
 	- Create an account at www.canvas.instructure.com
+	- Windows users need to install Git Bash
+
+- Cover at least the basics of using the IDE
 
 - Once set up is complete, start HTML

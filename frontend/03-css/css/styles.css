@@ -1,0 +1,53 @@
+.blue {
+	color: blue;
+}
+
+#centered {
+	text-align: center;
+}
+
+#left {
+	text-align: left;
+}
+
+#right {
+	text-align: right;
+}
+
+/* Styles for 06-tables-with-css.html */
+
+table, th, td {
+	border: solid green 0.1em;
+}
+
+table {
+	border-collapse: collapse;
+	text-align: center; /* This doesn't align the entire table -- just the text within each cell. */
+	margin: auto; /* This centers the table by telling the browser to set equal margins on each side of the element */
+}
+
+/* Styles for 07-containers.html */
+
+body {
+	background-color: grey;
+}
+
+h1 {
+	color: yellow;
+}
+
+nav {
+	text-align: center;
+	background-color: black;
+}
+
+.nav-li {
+	display: inline-block;
+	color: yellow;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+img {
+	display: block;
+}
