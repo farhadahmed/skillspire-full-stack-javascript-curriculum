@@ -1,27 +1,19 @@
 /*
-LinkedList functions
+Discuss what a LinkedList is. Discuss when to use 
+LinkedList vs array. 
+
+Cover the following functions
 - Check if empty
-- Check size
 - Prepend
 - Append
+- Check size
 - Contains
 - Remove
 */
 
+// Use the test function to invoke functions with various parameters
 function test() {
-	var list = new LinkedList;
-	console.log('Expect true.');
-	console.log(list.isEmpty());
-	console.log('Expect [5]-');
-	list.prepend(5);
-	console.log(list.print());
-	console.log('Expect [5]-[7]-');
-	list.append(7);
-	console.log(list.print());
-	console.log('Expect false');
-	console.log(list.contains(32));
-	console.log('Expect true.');
-	console.log(list.contains(7));
+	// Insert tests here
 }
 
 // Initialize an empty linked list
@@ -39,13 +31,43 @@ LinkedList.prototype.isEmpty = function() {
 	}
 }
 
+LinkedList.prototype.prepend = function(val) {
+	// New node's next points to the current head node
+	let newNode = {
+		value: val,
+		next: this.head
+	}
+	// Make new node the list's head
+	this.head = newNode;
+}
+
+LinkedList.prototype.append = function(val) {
+	let newNode = {
+		value: val,
+		next: null
+	};
+
+	// If the list is empty, make the newNode the head
+	if (this.isEmpty()) {
+		this.head = newNode;
+	} else {
+		let current = this.head;
+
+		// The loop moves current to the end of the list and then appends newNode
+		while (current.next !== null) {
+			current = current.next;
+		}
+
+		current.next = newNode;
+	}
+}
 
 // Returns the size of the list
 LinkedList.prototype.size = function() {
 
 	// If list is empty (i.e., if this.head is null), while loop is skipped and 0 is returned.
-	var current = this.head;
-	var count = 0;
+	let current = this.head;
+	let count = 0;
 
 	// As current moves to the next node, count is incremented
 	while (current !== null) {
@@ -59,8 +81,8 @@ LinkedList.prototype.size = function() {
 LinkedList.prototype.print = function() {
 	if (this.isEmpty()) {return 'empty list'};
 
-	var current = this.head;
-	var output = '';
+	let current = this.head;
+	let output = '';
 	while (current !== null) {
 		output += '[' + current.value + ']-';
 		current = current.next;
@@ -68,37 +90,6 @@ LinkedList.prototype.print = function() {
 
 	return output;
 };
-
-LinkedList.prototype.prepend = function(val) {
-	// New node's next points to the current head node
-	var newNode = {
-		value: val,
-		next: this.head
-	}
-	// Make new node the list's head
-	this.head = newNode;
-}
-
-LinkedList.prototype.append = function(val) {
-	var newNode = {
-		value: val,
-		next: null
-	};
-
-	// If the list is empty, make the newNode the head
-	if (this.isEmpty()) {
-		this.head = newNode;
-	} else {
-		var current = this.head;
-
-		// The loop moves current to the end of the list and then appends newNode
-		while (current.next !== null) {
-			current = current.next;
-		}
-
-		current.next = newNode;
-	}
-}
 
 
 LinkedList.prototype.contains = function(val) {
@@ -121,8 +112,8 @@ LinkedList.prototype.remove = function(val) {
 		this.head = this.head.next;
 		return 'Head removed.';
 	} else {
-		var current = this.head.next;
-		var previous = this.head;
+		let current = this.head.next;
+		let previous = this.head;
 		// Move current and previous through the list until either val equals current.value or current hits the end of the list
 		while (current !== null) {
 			if (current.value === val) {

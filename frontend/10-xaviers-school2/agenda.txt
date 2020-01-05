@@ -1,2 +1,0 @@
-- Continue working on Xaviers School app
-- Overview of git and GitHub

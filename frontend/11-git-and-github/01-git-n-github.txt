@@ -1,8 +1,21 @@
-// Configuring global variables for username and email
+-Discuss version control with git. 
+-Discuss commonly used tools such as BitBucket and GitHub.
+-Walk through the process of using GitHub, committing/pushing changes, 
+ and best practices for branching
+
+ A useful resource: https://nvie.com/posts/a-successful-git-branching-model/ 
+
+
+Have students configure global variables for username and email
+_______________________________________________________________
 
 git config --global user.name "Your Name" 
 git conifg --global user.email "email@gmail.com"
 
+
+
+Discuss commonly used git commands
+__________________________________
 
 - git init
 	- Initializes a directory as a git repository
@@ -30,10 +43,9 @@ git conifg --global user.email "email@gmail.com"
 
 - git push origin master
 	- Pushes the master branch to a remote location named "origin"
+
 - git pull origin master
 	- Retrieves the master branch from a remote location named "origin"
-
-
 
 - git clone
 	- Clones an existing repo

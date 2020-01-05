@@ -1,0 +1,33 @@
+Discuss NodeJS, what it does, and examples of when it is used
+
+
+NodeJS Intro
+____________
+
+- Node.js is a server side framework for JavaScript
+- Can be used to make HTTP requests to an API
+- Can be used to modify data in db
+
+What is NPM?
+____________
+
+- Node Package Manager allows you to install and manage packages
+
+
+
+Getting Started
+_______________
+
+Macbooks
+	- Install homebrew
+		- Go to https://brew.sh/
+		- Run this command:
+			- /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	- Run this command:
+		- brew install node
+	- Verify that brew and npm have been installed by running the following:
+		- node -v
+		- npm -v
+
+Windows
+	- https://www.guru99.com/download-install-node-js.html

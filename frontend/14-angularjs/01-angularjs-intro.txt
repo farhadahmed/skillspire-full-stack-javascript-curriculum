@@ -1,4 +1,12 @@
-Intro to AngularJS
+NOTE: You do not have to teach Angular. Choose any popular front-end framework.
+
+- Discuss what frameworks and libraries are
+- Why do people use this framework? What are the benefits
+- What is MVC? Example?
+__________________________________________
+
+
+Angular Intro
 
 - A client side JS framework
 - Created by Google
