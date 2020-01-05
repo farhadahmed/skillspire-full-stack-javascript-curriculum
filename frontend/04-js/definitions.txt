@@ -1,0 +1,20 @@
+String concatenation - joining two strings together
+	EX: 'Harry ' + 'Potter ';
+
+Unary operators - Operators that use one value
+	EX: typeof 4;
+
+Binary operators - Operators that use two values
+	EX: 3+5;
+	EX: 6%3;
+	EX: 3 > 2;
+
+Boolean values - In JS, a Boolean data type can be one of two values - true or false.
+	EX: true;
+	EX: false;
+
+Comparison operators - Operators that compare one value with another value. 
+
+	EX: 3 > 2;
+	EX: 5 <= 4;
+	EX: '1' === 1;

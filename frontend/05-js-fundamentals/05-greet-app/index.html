@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Name App</title>
+	</head>
+	<body>
+		<h1>Our Name Application</h1>
+
+		<!-- It's important to give your users directions or some idea of what the page does. -->
+		<p>Enter your name below and you'll be greeted.</p>
+
+		<!-- The form is for getting input from user -->
+		<!-- The id attribute for <form>, inputs, and the <p> are so that we can access these elements
+			 in our JavaScript.-->
+		<form id="name-form">
+			<label>First name:</label>
+			<input type="text" id="fname-input">
+			<label>Last name:</label>
+			<input type="text" id="lname-input">
+			<!-- ALL of our JS logic will be attached to the button submission. -->
+			<button type="submit">Enter</button>
+		</form>
+
+		<!-- Output info back to user -->
+		<p id="output-p"></p>
+
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+</html>

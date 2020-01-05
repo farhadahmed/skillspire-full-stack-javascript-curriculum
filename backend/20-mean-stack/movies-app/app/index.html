@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="moviesApp">
+<head>
+	<title>Movies</title>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-controller=mainController>
+	<h1>Movies</h1>
+
+	<form>
+		<input type="text" placeholder="Title" ng-model="movie.name">
+		<input type="text" placeholder="Rating" ng-model="movie.rating">
+		<input type="text" placeholder="Release Year" ng-model="movie.releaseYear">
+		<input type="text" placeholder="Length" ng-model="movie.length">
+		<button ng-click="addMovie()">Add Movie</button>
+		<button ng-click="putMovie()">Update Movie</button>
+	</form>
+
+	<br>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Rating</th>
+				<th>Release Year</th>
+				<th>Length</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="movie in movies | orderBy: 'name'">
+				<td>{{movie.name}}</td>
+				<td>{{movie.rating}}</td>
+				<td>{{movie.releaseYear}}</td>
+				<td>{{movie.length}}</td>
+				<td><button ng-click="deleteMovie(movie._id)">Delete</button></td>
+				<td><button ng-click="edit(movie._id)">Edit</button></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script type="text/javascript" src="scripts/script.js"></script>
+</body>
+</html>

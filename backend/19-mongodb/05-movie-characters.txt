@@ -1,0 +1,36 @@
+~~Use terminal to create a db called tvCharacters. Create 2 of your favorite TV show characters. Insert them into the db. Display them in a way that's easy to read. Delete one of them. Display them again.~~
+
+Step 1: Create the db
+
+use tvCharacters
+
+
+Step 2: create 2 TV character objects
+
+house = {"name": "House M.D.", "tvShow": "House"}
+rick = {"name": "Rick Grimes", "tvShow": "Walking Dead"}
+
+
+Step 3: insert objects into db
+
+db.tvCharacters.insert(house)
+db.tvCharacters.insert(rick)
+
+[NOTE: You can also insert both objects into the db simultaneously]
+
+db.tvCharacters.insert([house, rick])
+
+
+Step 4: display the objects in a way that's easy to read
+
+db.tvCharacters.find().pretty()
+
+
+Step 5: delete one of the objects
+
+db.tvCharacters.remove({"name": "Rick Grimes"})
+
+
+Step 6: display the objects again
+
+db.tvCharacters.find().pretty()

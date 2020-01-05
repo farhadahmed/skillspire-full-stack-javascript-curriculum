@@ -1,0 +1,42 @@
+About MongoDB
+
+- MongoDB stores data in JSON format, making it lightweight and easy to use
+
+- Your MongoDB instance can contain multiple databases
+
+- A db can have 0 or more collections (tables)
+
+- A collection can have 0 or more documents (rows)
+
+- Documents can have 1 or more fields (columns)
+
+
+
+START MONGO
+- mongod in one terminal
+- mongo in a second terminal
+
+
+Common commands
+
+help
+
+show dbs
+- Displays all dbs
+
+db
+- Displays the db you're currently using
+
+use first_db
+- Will switch to this db. If it doesn't exist, it'll also be created.
+
+
+
+rickgrimes = {"name": "Rick Grimes", "number": "111-1111", "email": "rgrimes@walkingdead.com", "contactCreationDate": new Date()}
+
+db.first_db.insert(rickgrimes)
+
+	- This will insert our object into first_db 
+
+db.first_db.find()
+db.first_db.find().pretty()

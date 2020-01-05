@@ -1,0 +1,2 @@
+Use the terminal to create a git repository. 
+Create an HTML file and push it to GitHub

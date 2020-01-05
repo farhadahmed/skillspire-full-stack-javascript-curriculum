@@ -8,6 +8,26 @@ Intros
 
   	- You can talk about your successes in this field and/or 
   	  discuss how lucrative this field is
+__________________________________________________________
+
+Through this course students can expect to:
+
+- Learn how to build full-stack web applications 
+- Get prepared for their first tech job
+- Learn how to prep for an interview
+- Gain the skills to pass the technical interviews and learn
+  best practices for how to answer questions
+- Learn how to apply for tech jobs
+__________________________________________________________
+
+- Technical career paths
+	- SDET - (Software Development Engineer in Test) write code to test features.They have to be good at both coding and testing.
+	
+	- SDE - Software Development Engineer
+
+	- Solutions Engineer - Know how to write and test code. Provide dev support for clients' engineers 
+
+__________________________________________________________
 
 - Discuss requirements to pass. See README for specifics.
 
@@ -20,4 +40,11 @@ Intros
 
 - Cover at least the basics of using the IDE
 
-- Once set up is complete, start HTML
+__________________________________________________________
+
+Overview of HTML/CSS/JS
+
+HTML - Body of a website. Text, images, links, etc
+CSS - Style
+JavaScript - Functionality
+

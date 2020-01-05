@@ -1,0 +1,39 @@
+// Configuring global variables for username and email
+
+git config --global user.name "Your Name" 
+git conifg --global user.email "email@gmail.com"
+
+
+- git init
+	- Initializes a directory as a git repository
+
+- git status
+	- Responds with status of your repo
+
+- git add .
+	- Takes a snapshot of the code that has been changed
+
+- git commit -m "some message"
+	- Saves the changes to Git
+
+- git branch
+	- Displays all branches and a star next to current branch
+
+- git branch some-branch-name
+	- Creates a new branch named some-branch-name
+
+- git checkout -b some-branch-name
+	- Creates a new branch named some-branch-name AND switches to that branch
+
+- git branch -d some-branch
+	- Deletes the branch named some-branch
+
+- git push origin master
+	- Pushes the master branch to a remote location named "origin"
+- git pull origin master
+	- Retrieves the master branch from a remote location named "origin"
+
+
+
+- git clone
+	- Clones an existing repo

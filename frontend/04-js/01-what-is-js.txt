@@ -1,0 +1,33 @@
+
+Intro to JavaScript
+
+- Before we discuss a programming language, what is a program?
+	- A list of instructions that tell a computer what to do.
+
+______________________________________________
+JavaScript lesson structure:
+- In order to understand web development, it is essential to understand the basic principles of programming.  
+______________________________________________
+
+What is JavaScript?
+
+- The language was introduced in 1995 and used to create programs in Netscape (Netscape was a browser similar to Google Chrome and Internet Explorer).
+
+- All-purpose language but mainly used for building web applications
+
+- Not to be confused with Java.  JavaScript has almost nothing to do with Java except that they're both programming languages.
+
+
+JS has 6 data types
+	1) numbers
+		- Represent numeric values
+	2) strings
+		- Represent text
+	3) Booleans
+		- Represent something that is true or false
+	4) objects
+		- Represent real world entities
+	5) functions
+		- Mini programs
+	6) undefined
+		- Anything that hasn't been defined

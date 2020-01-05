@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<!-- 
+	The purpose of this application is to review how to use an HTML form to create objects in JS, and then display those objects
+-->
+
+<!-- 
+	A common functionality on any application is the ability to create new objects with a form. This HTML page that takes the following input:
+
+		School name
+		Principal Name
+		Address - street name, city, state, zip
+		PrimaryContactEmail
+
+	When the user clicks submit, a JS event handler creates a School object with this information. Then it displays the newly created object along with its information 
+	on the page. 
+-->
+<html>
+<head>
+	<title>Washington School District</title>
+</head>
+<body>
+	<h1>School Creation</h1>
+
+	<form id="school-creation-form">
+		<input type="text" placeholder="School name" id="school-name">
+		<input type="text" placeholder="Principal name" id="principal-name">
+		<input type="text" placeholder="Street" id="street">
+		<input type="text" placeholder="Email" id="email">
+		<input type="text" placeholder="City" id="city">
+		<input type="text" placeholder="State" id="state">
+		<input type="text" placeholder="Zip code" id="zip">
+		<button type="submit">Create School</button>
+	</form>
+
+	<!-- After creating the object, we'll display it inside this list -->
+	<ul id="output"></ul>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

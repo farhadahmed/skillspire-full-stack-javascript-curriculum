@@ -1,0 +1,19 @@
+Intro to AngularJS
+
+- A client side JS framework
+- Created by Google
+- Used for creating SPAs (Single Page Applications)
+- Separation of concerns
+- Similar to MVC pattern (this is MVW or MV*)
+
+
+- pandora.com
+	- View - everything you see on the page
+	- Controller - the parts of the page that control changes in the view
+	- Model - the array of song object data.
+
+
+Angular works as an extension of HTML to bind HTML and JS data
+	- It does this using "directives" which are built into 
+	  Angular to add functionality. An Angular "directive" is
+	  usually written as an HTML attribute

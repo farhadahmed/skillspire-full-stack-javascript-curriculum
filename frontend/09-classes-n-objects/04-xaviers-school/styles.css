@@ -1,0 +1,53 @@
+body {
+	background-color: black;
+}
+
+div {
+	padding-top: 5%;
+	width: 70%;
+	height: 100vh;
+	background-color: white;
+	margin: auto;
+	text-align: center;
+	background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/64750037-b218-4c75-b566-cd5f0a326fa6/d80rma8-5de3857a-9d01-44a2-9f56-60a474a352c7.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY0NzUwMDM3LWIyMTgtNGM3NS1iNTY2LWNkNWYwYTMyNmZhNlwvZDgwcm1hOC01ZGUzODU3YS05ZDAxLTQ0YTItOWY1Ni02MGE0NzRhMzUyYzcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Ki3hILYn9ooKw8-s82V1lCVS1eA8WOZZEndRZgmm4oE');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+}
+
+input {
+	margin: 1em;
+	font-size: 100%;/
+}
+
+table {
+	background-color: white;
+	margin: auto;
+	border-collapse: collapse;
+	width: 80%;
+	margin-top: 3em;
+}
+
+td {
+	border: 0.02em solid black;
+}
+
+tbody tr:hover {
+	background-color: #ddd;
+}
+
+tbody tr:nth-child(even){
+	background-color: gray;
+}
+
+tbody tr:nth-child(even):hover {
+	background-color: black;
+}
+
+tbody tr:nth-child(odd){
+	background-color: #e8d207;
+}
+
+tbody tr:nth-child(odd):hover {
+	background-color: black;
+}

@@ -1,0 +1,48 @@
+MAC:
+
+-Before you start, make sure that your MacOS is fully updated. Go to "App Store", click on "Updates", and install any updates for MacOS
+
+-Install Xcode from the App Store.
+
+- Install Homebrew from brew.sh
+
+- If you already have Homebrew installed, in terminal type: brew update
+
+- In terminal type: brew tap mongodb/brew
+
+- In terminal type: brew install mongodb-community@4.2
+
+- In terminal type:  sudo mkdir -p /data/db
+
+- Check the user by typing: whoami
+
+- Change the owner to yourself by typing: sudo chown [your user name] /data/db
+
+	- For example: sudo chown farhadahmed /data/db
+
+- Check if it was installed by typing: which mongo
+	- You should see a path to mongo
+
+
+WINDOWS
+
+- Download from mongodb.org
+
+- Create a shortcuts in Git Bash to the mongo.exe and mongod.exe files.
+
+	- In Git Bash, type: ls -a ~
+
+	- If you don't see a file titled .bashrc, create it in here by
+  typing: touch ~/.baschrc
+
+	- Type notepad ~/.bashrc (this will open the file in Notepad)
+
+	- Create shortcuts by typing these two lines in Notepad:
+
+		- alias mongod="/c/Program\ files/MongoDB/Server/3.4/bin/mongod.exe"
+		- alias mongo="/c/Program\ Files/MongoDB/Server/3.4/bin/mongo.exe"
+
+
+		- NOTE: The version "3.4" must match whatever version you installed.
+
+- Check if it was installed by typing this in git bash: which mongo

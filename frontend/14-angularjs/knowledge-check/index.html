@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Contacts App</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-controller="mainController">
+
+	<form ng-submit="addContact()">
+		<!-- ng-model is used to bind input values to
+		JS variables -->
+		<input type="text" placeholder="Name" ng-model="contact.name">
+		<input type="text" placeholder="Number" ng-model="contact.number">
+		<input type="text" placeholder="Email" ng-model="contact.email">
+		<button type="submit">Enter</button>
+	</form>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Number</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- ng-repeat works like a for loop that will display each item in an array -->
+			<tr ng-repeat="contact in contacts | orderBy: 'name'">
+				<!-- angular expressions are used to grab data created in our JS controller using $scope -->
+				<td>{{contact.name}}</td>
+				<td>{{contact.number}}</td>
+				<td>{{contact.email}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

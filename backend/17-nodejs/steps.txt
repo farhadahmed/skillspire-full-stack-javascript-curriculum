@@ -1,0 +1,22 @@
+  
+Setting up a Node app with Express:
+
+1) npm init
+
+	- Creates a file called package.json which makes it easier to work with other devs
+	  and keep track of dependencies
+
+2) Answer the questions
+
+	- At minimum, needs a name and version
+	- Name must be all lower case, can be separated by dashes or underscores
+	- Change entry point to server.js
+
+3) npm install --save express
+
+	- Express is THE standard server framework for Node.js
+	- --save installs the framework locally as a dependency of the application
+
+4) touch server.js
+
+5) Set up server with a get request that responds with 'Hello, universe!'.

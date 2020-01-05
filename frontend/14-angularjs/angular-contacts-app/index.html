@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+
+<!--
+Step 1: Create our HTML file
+Step 2: Link to angular CDN
+Step 3: Create module in script.js
+Step 4: Connect the module to html using the ng-app directive
+Step 5: Add a controller to our script.js that:
+	a) Contains our "model" (the data)
+		- it will later also contain - 
+	b) Contains the functionality that will add new table rows on submission
+Step 6: Display existing contacts inside the table using the ng-repeat directive and Angular expressions
+	- Angular expressions {{}} are used to grab data from the controller
+Step 7: Order the table by name
+Step 8: Add a border to the table using css just to make it clear
+Step 9: Use the ng-model directive to bind HTML inputs to controller data
+ -->
+<head>
+	<title>Contacts App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body ng-controller="mainController">
+	<h1>Contacts App</h1>
+
+	<form ng-submit="addContact()">
+		<!-- ng-model is used to bind input values to an AngularJS variable -->
+		<input type="text" placeholder="Name" ng-model="contact.name" required>
+		<input type="text" placeholder="Phone" ng-model="contact.number">
+		<input type="text" placeholder="Email" ng-model="contact.email">
+		<button type="submit">Enter</button>
+	</form>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Number</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- ng-repeat works like a for loop that will display each item in an array -->
+			<tr ng-repeat="contact in contacts | orderBy: 'name'">
+				<!-- angular expressions are used to grab data created in our JS controller using $scope -->
+				<td>{{contact.name}}</td>
+				<td>{{contact.number}}</td>
+				<td>{{contact.email}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

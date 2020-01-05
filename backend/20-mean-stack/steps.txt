@@ -1,0 +1,1320 @@
+MEAN STACK APP 
+
+1. Build the file/folder structure
+2. npm init
+3. git init
+4. Build minimal HTML
+5. Set up server
+6. Wrap up HTML
+7. Add CSS
+8. Add Angular
+9. Create movie objects in controller
+
+		'use strict';
+		
+		let moviesApp = angular.module('moviesApp', []);
+		
+		moviesApp.controller('mainController', function($scope, $http) {
+		
+			$scope.movies = [
+				{
+					name: 'The Terminator',
+					rating: 8.0,
+					releaseYear: 1984
+				},
+				{
+					name: 'Iron Man',
+					rating: 7.9,
+					releaseYear: 2008
+				},
+				{
+					name: 'Star Wars: Return of the Jedi',
+					rating: 8.3,
+					releaseYear: 1983
+				}
+			];
+		
+		});
+
+10. Repeat movies in table
+
+		<!DOCTYPE html>
+		<html ng-app="moviesApp">
+		<head>
+			<title>Movies</title>
+			<link rel="stylesheet" type="text/css" href="styles/styles.css">
+			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		</head>
+		<body ng-controller=mainController>
+			<h1>Movies</h1>
+		
+			<form ng-submit="addMovie()">
+				<input type="text" placeholder="Title" ng-model="movie.name">
+				<input type="text" placeholder="Rating" ng-model="movie.rating">
+				<input type="text" placeholder="Release Year" 		ng-model="movie.releaseYear">
+				<input type="text" placeholder="Length" ng-model="movie.length">
+				<button type="submit">Add Movie</button>
+			</form>
+		
+			<br>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Rating</th>
+						<th>Release Date</th>
+						<th>Length</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="movie in movies | orderBy: 'name'">
+						<td>{{movie.name}}</td>
+						<td>{{movie.rating}}</td>
+						<td>{{movie.releaseYear}}</td>
+						<td>{{movie.length}}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<script type="text/javascript" src="scripts/script.js"></script>
+		</body>
+		</html>
+
+
+11. Add new row of movies on submit
+
+		'use strict';
+
+		let moviesApp = angular.module('moviesApp', []);
+
+		moviesApp.controller('mainController', function($scope, $http) {
+
+			$scope.movies = [
+				{
+					name: 'The Terminator',
+					rating: '8.0',
+					releaseYear: '1984',
+					length: '123'
+				},
+				{
+					name: 'Iron Man',
+					rating: '7.9',
+					releaseYear: '2008',
+					length: '120'
+				},
+				{
+					name: 'Star Wars: Return of the Jedi',
+					rating: '8.3',
+					releaseYear: '1983',
+					length: '118'
+				}
+			];
+
+			// ng-model from our html file will bind the input values to our
+			// variables here
+			$scope.addMovie = function() {
+				$scope.movies.push(
+					{
+						name: $scope.movie.name, 
+						rating: $scope.movie.rating, 
+						releaseYear: $scope.movie.releaseYear,
+						length: $scope.movie.length
+					}
+				);
+
+				clearInputs();
+			}
+
+			function clearInputs() {
+				// clear input boxes
+				$scope.movie.name = '';
+				$scope.movie.rating = '';
+				$scope.movie.releaseYear = '';
+				$scope.movie.length = '';
+			}
+
+		});
+
+
+// GET REQUEST
+
+
+12. Add get /movies route
+
+		let express = require('express');
+		let app = express();
+		let port = process.env.PORT || 3000;
+		
+		app.use(express.static(__dirname + '/app/'));
+		
+		app.get('/movies', function(request, response) {
+			console.log('Server received GET request');
+		});
+		
+		app.listen(port, function() {
+		    console.log('server starting at http://localhost:' + port);
+		});
+
+
+
+13. Comment out the movies from the Angular controller. Instead, store movie objects in server.js and add /get request.
+
+
+		let express = require('express');
+		let app = express();
+		let port = process.env.PORT || 3000;
+		
+		let moviesList = [
+			{
+				name: 'The Terminator',
+				rating: '8.0',
+				releaseYear: '1984',
+				length: '123'
+			},
+			{
+				name: 'Iron Man',
+				rating: '7.9',
+				releaseYear: '2008',
+				length: '120'
+			},
+			{
+				name: 'Star Wars: Return of the Jedi',
+				rating: '8.3',
+				releaseYear: '1983',
+				length: '118'
+			}
+		];
+		
+		app.use(express.static(__dirname + '/app/'));
+		
+		// GET /movieList endpoint
+		app.get('/movies', function(request, response) {
+			console.log('Server received GET request from Angular controller');
+			console.log(moviesList);
+			response.json(moviesList);
+		});
+		
+		app.listen(port, function() {
+		    console.log('server starting at http://localhost:' + port);
+		});
+
+
+14. Update controller to get movies from server and display the movies in the
+	console
+
+
+		'use strict';
+		
+		let moviesApp = angular.module('moviesApp', []);
+		
+		moviesApp.controller('mainController', function($scope, $http) {
+		
+			// $scope.movies = [
+			// 	{
+			// 		title: 'The Terminator',
+			// 		rating: 8.0,
+			// 		releaseYear: 1984,
+			// 		length: 120
+			// 	},
+			// 	{
+			// 		title: 'Iron Man',
+			// 		rating: 7.9,
+			// 		releaseYear: 2008,
+			// 		length: 118
+			// 	},
+			// 	{
+			// 		title: 'Star Wars: Return of the Jedi',
+			// 		rating: 8.3,
+			// 		releaseYear: 1983,
+			// 		length: 102
+			// 	}
+			// ];
+
+			let getMovies = function() {
+				// Retrieve movie data from server. '/movieList' is the route we'll get data from
+				$http.get('/movies').then(function (response) {
+					
+					// Taking the movie JSON objects from server and assigning to variable
+					let movies = response.data;
+					console.log(movies);
+				});
+			}
+			getMovies();
+		
+			// ng-model from our html file will bind the input values to our
+			// variables here
+			$scope.addMovie = function() {
+				$scope.movies.push(
+					{
+						name: $scope.movie.name, 
+						rating: $scope.movie.rating, 
+						releaseYear: $scope.movie.releaseYear,
+						length: $scope.movie.length
+					}
+				);
+		
+				clearInputs();
+			}
+
+			function clearInputs() {
+				// clear input boxes
+				$scope.movie.name = '';
+				$scope.movie.rating = '';
+				$scope.movie.releaseYear = '';
+				$scope.movie.length = '';
+			}
+		
+		});
+
+
+15. Update controller to display the movies array from server in table
+	by using $scope.movies
+
+
+		'use strict';
+		
+		let moviesApp = angular.module('moviesApp', []);
+		
+		moviesApp.controller('mainController', function($scope, $http) {
+		
+			// $scope.movies = [
+			// 	{
+			// 		title: 'The Terminator',
+			// 		rating: 8.0,
+			// 		releaseYear: 1984,
+			// 		length: 120
+			// 	},
+			// 	{
+			// 		title: 'Iron Man',
+			// 		rating: 7.9,
+			// 		releaseYear: 2008,
+			// 		length: 118
+			// 	},
+			// 	{
+			// 		title: 'Star Wars: Return of the Jedi',
+			// 		rating: 8.3,
+			// 		releaseYear: 1983,
+			// 		length: 102
+			// 	}
+			// ];
+		
+			let getMovies = function() {
+				// Retrieve movie data from server. '/movieList' is the route we'll get data from
+				$http.get('/movies').then(function (response) {
+					
+					// Taking the movie JSON objects from server and assigning to variable
+					$scope.movies = response.data;
+					console.log($scope.movies);
+				});
+			}
+			getMovies();
+		
+			// ng-model from our html file will bind the input values to our
+			// variables here
+			$scope.addMovie = function() {
+				$scope.movies.push(
+					{
+						name: $scope.movie.name, 
+						rating: $scope.movie.rating, 
+						releaseYear: $scope.movie.releaseYear,
+						length: $scope.movie.length
+					}
+				);
+		
+				clearInputs();
+			}
+		
+			function clearInputs() {
+				// clear input boxes
+				$scope.movie.name = '';
+				$scope.movie.rating = '';
+				$scope.movie.releaseYear = '';
+				$scope.movie.length = '';
+			}
+		
+		});
+
+
+16. Create a mongo db through the terminal.
+
+		use movies_db
+
+
+17. Create movie objects in the db through the terminal
+
+		frozen2 = {"name": "Frozen 2", "rating": "4.3", "releaseYear": "2019", "length": "102"}
+
+		joker = {"name": "Joker", "rating": "8.7", "releaseYear": "2019", "length": "122"}
+
+		godfather = {"name": "The Godfather", "rating": "9.1", "releaseYear": "1972", "length": "175"}
+
+
+18. Add the movie objects to the db
+
+		db.movies2_db.insert(frozen2)
+		db.movies2_db.insert(joker)
+		db.movies2_db.insert(godfather)
+
+
+19. Make sure the objects have been added
+
+		db.movies2_db.find().pretty()
+
+
+20. Install mongodb through npm
+
+		npm install --save mongojs
+
+
+21. In server, require mongojs, comment out movies array, comment out get
+	request
+
+
+		let express = require('express');
+		let app = express();
+		// Mongojs allows us to connect our Node server to a Mongo DB
+		let mongojs = require('mongojs');
+		let db = mongojs('movies2_db', ['movies2_db']);
+		let port = process.env.PORT || 3000;
+		
+		// let moviesList = [
+		// 	{
+		// 		name: 'The Terminator',
+		// 		rating: '8.0',
+		// 		releaseYear: '1984',
+		// 		length: '123'
+		// 	},
+		// 	{
+		// 		name: 'Iron Man',
+		// 		rating: '7.9',
+		// 		releaseYear: '2008',
+		// 		length: '120'
+		// 	},
+		// 	{
+		// 		name: 'Star Wars: Return of the Jedi',
+		// 		rating: '8.3',
+		// 		releaseYear: '1983',
+		// 		length: '118'
+		// 	}
+		// ];
+		
+		app.use(express.static(__dirname + '/app/'));
+		
+		// GET /movieList endpoint
+		// app.get('/movies', function(request, response) {
+		// 	console.log('Server received GET request from Angular controller');
+		// 	console.log(moviesList);
+		// 	response.json(moviesList);
+		// });
+		
+		app.listen(port, function() {
+		    console.log('server starting at http://localhost:' + port);
+		});
+
+
+22. In server.js, create get request that retrieves movies from db
+
+
+		let express = require('express');
+		let app = express();
+		// Mongojs allows us to connect our Node server to a Mongo DB
+		let mongojs = require('mongojs');
+		let db = mongojs('movies2_db', ['movies2_db']);
+		let port = process.env.PORT || 3000;
+		
+		// let moviesList = [
+		// 	{
+		// 		name: 'The Terminator',
+		// 		rating: '8.0',
+		// 		releaseYear: '1984',
+		// 		length: '123'
+		// 	},
+		// 	{
+		// 		name: 'Iron Man',
+		// 		rating: '7.9',
+		// 		releaseYear: '2008',
+		// 		length: '120'
+		// 	},
+		// 	{
+		// 		name: 'Star Wars: Return of the Jedi',
+		// 		rating: '8.3',
+		// 		releaseYear: '1983',
+		// 		length: '118'
+		// 	}
+		// ];
+		
+		app.use(express.static(__dirname + '/app/'));
+		
+		// GET /movies endpoint
+		// app.get('/movies', function(request, response) {
+		// 	console.log('Server received GET request from Angular controller');
+		// 	console.log(moviesList);
+		// 	response.json(moviesList);
+		// });
+		
+		// GET /movies endpoint
+		app.get('/movies', function(request, response) {
+		
+			console.log('Server received GET request from Angular controller');
+			
+			// Grabbing all movie objects from db and assigning them to the parameter "docs"
+			db.movies2_db.find(function(error, docs) {
+				console.log(docs);
+				// Responding to GET /movieList requests with the docs in JSON format
+				response.json(docs);
+			});
+		});
+		
+		app.listen(port, function() {
+		    console.log('server starting at http://localhost:' + port);
+		});
+
+
+
+// POST REQUEST
+
+
+23. Install body parser so that post requests will work.
+
+		npm install --save body-parser
+
+
+
+24. In server.js, require body-parser, app.use the bodyparser, add a post movie
+	route to send request to db to create a new movie.
+
+
+		let express = require('express');
+		let app = express();
+		// Mongojs allows us to connect our Node server to a Mongo DB
+		let mongojs = require('mongojs');
+		let db = mongojs('movies2_db', ['movies2_db']);
+		// Body-parser allows us to extract the body of requests sent to the server
+		// It isn't needed for the get request but is needed for post
+		let bodyParser = require('body-parser');
+		let port = process.env.PORT || 3000;
+		
+		// let moviesList = [
+		// 	{
+		// 		name: 'The Terminator',
+		// 		rating: '8.0',
+		// 		releaseYear: '1984',
+		// 		length: '123'
+		// 	},
+		// 	{
+		// 		name: 'Iron Man',
+		// 		rating: '7.9',
+		// 		releaseYear: '2008',
+		// 		length: '120'
+		// 	},
+		// 	{
+		// 		name: 'Star Wars: Return of the Jedi',
+		// 		rating: '8.3',
+		// 		releaseYear: '1983',
+		// 		length: '118'
+		// 	}
+		// ];
+		
+		app.use(express.static(__dirname + '/app/'));
+		app.use(bodyParser.json());
+		
+		// GET /movies endpoint
+		// app.get('/movies', function(request, response) {
+		// 	console.log('Server received GET request from Angular controller');
+		// 	console.log(moviesList);
+		// 	response.json(moviesList);
+		// });
+		
+		// GET /movies endpoint
+		app.get('/movies', function(request, response) {
+		
+			console.log('Server received GET request from Angular controller');
+			
+			// Grabbing all movie objects from db and assigning them to the parameter "docs"
+			db.movies2_db.find(function(error, docs) {
+				console.log(docs);
+				// Responding to GET /movieList requests with the docs in JSON format
+				response.json(docs);
+			});
+		});
+		
+		// POST /movies endpoint
+		app.post('/movies', function (request, response) {
+			// Thanks to body-parser, we can grab the body of the request
+			console.log(request.body);
+			// Grab the object from the body of the request and insert it into the DB
+			db.movies2_db.insert(request.body, function(error, docs) {
+				response.json(docs);
+			});
+		});
+		
+		app.listen(port, function() {
+		    console.log('server starting at http://localhost:' + port);
+		});
+
+
+25. In controller, comment out the addMovie() function.
+
+
+		'use strict';
+		
+		let moviesApp = angular.module('moviesApp', []);
+		
+		moviesApp.controller('mainController', function($scope, $http) {
+		
+			// $scope.movies = [
+			// 	{
+			// 		title: 'The Terminator',
+			// 		rating: 8.0,
+			// 		releaseYear: 1984,
+			// 		length: 120
+			// 	},
+			// 	{
+			// 		title: 'Iron Man',
+			// 		rating: 7.9,
+			// 		releaseYear: 2008,
+			// 		length: 118
+			// 	},
+			// 	{
+			// 		title: 'Star Wars: Return of the Jedi',
+			// 		rating: 8.3,
+			// 		releaseYear: 1983,
+			// 		length: 102
+			// 	}
+			// ];
+		
+			let getMovies = function() {
+				// Retrieve movie data from server. '/movieList' is the route we'll get data from
+				$http.get('/movies').then(function (response) {
+					
+					// Taking the movie JSON objects from server and assigning to variable
+					$scope.movies = response.data;
+					console.log($scope.movies);
+				});
+			}
+			getMovies();
+		
+			// ng-model from our html file will bind the input values to our
+			// variables here
+			// $scope.addMovie = function() {
+			// 	$scope.movies.push(
+			// 		{
+			// 			name: $scope.movie.name, 
+			// 			rating: $scope.movie.rating, 
+			// 			releaseYear: $scope.movie.releaseYear,
+			// 			length: $scope.movie.length
+			// 		}
+			// 	);
+		
+			// 	clearInputs();
+			// }
+		
+			function clearInputs() {
+				// clear input boxes
+				$scope.movie.name = '';
+				$scope.movie.rating = '';
+				$scope.movie.releaseYear = '';
+				$scope.movie.length = '';
+			}
+		
+		});
+
+
+
+26. Update controller to send a post request to the server when submit
+	button is clicked.
+
+
+
+		'use strict';
+		
+		let moviesApp = angular.module('moviesApp', []);
+		
+		moviesApp.controller('mainController', function($scope, $http) {
+		
+			// $scope.movies = [
+			// 	{
+			// 		title: 'The Terminator',
+			// 		rating: 8.0,
+			// 		releaseYear: 1984,
+			// 		length: 120
+			// 	},
+			// 	{
+			// 		title: 'Iron Man',
+			// 		rating: 7.9,
+			// 		releaseYear: 2008,
+			// 		length: 118
+			// 	},
+			// 	{
+			// 		title: 'Star Wars: Return of the Jedi',
+			// 		rating: 8.3,
+			// 		releaseYear: 1983,
+			// 		length: 102
+			// 	}
+			// ];
+		
+			let getMovies = function() {
+				// Retrieve movie data from server. '/movieList' is the route we'll get data from
+				$http.get('/movies').then(function (response) {
+					
+					// Taking the movie JSON objects from server and assigning to variable
+					$scope.movies = response.data;
+					console.log($scope.movies);
+				});
+			}
+			getMovies();
+		
+			// ng-model from our html file will bind the input values to our
+			// variables here
+			// $scope.addMovie = function() {
+			// 	$scope.movies.push(
+			// 		{
+			// 			name: $scope.movie.name, 
+			// 			rating: $scope.movie.rating, 
+			// 			releaseYear: $scope.movie.releaseYear,
+			// 			length: $scope.movie.length
+			// 		}
+			// 	);
+		
+			// 	clearInputs();
+			// }
+		
+			$scope.addMovie = function() {
+				console.log($scope.movie);
+
+				$http.post('/movies', $scope.movie).then(function (response) {
+					getMovies();
+					clearInputs();
+				});
+			}
+		
+			function clearInputs() {
+				// clear input boxes
+				$scope.movie.name = '';
+				$scope.movie.rating = '';
+				$scope.movie.releaseYear = '';
+				$scope.movie.length = '';
+			}
+		});
+
+
+// DELETE REQUEST
+
+
+27. Add a delete button to each row in the table
+
+		<!DOCTYPE html>
+		<html ng-app="moviesApp">
+		<head>
+			<title>Movies</title>
+			<link rel="stylesheet" type="text/css" href="styles/styles.css">
+			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		</head>
+		<body ng-controller=mainController>
+			<h1>Movies</h1>
+		
+			<form ng-submit="addMovie()">
+				<input type="text" placeholder="Title" ng-model="movie.name">
+				<input type="text" placeholder="Rating" ng-model="movie.rating">
+				<input type="text" placeholder="Release Year" ng-model="movie.releaseYear">
+				<input type="text" placeholder="Length" ng-model="movie.length">
+				<button type="submit">Add Movie</button>
+			</form>
+		
+			<br>
+		
+			<table>
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Rating</th>
+						<th>Release Date</th>
+						<th>Length</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="movie in movies | orderBy: 'name'">
+						<td>{{movie.name}}</td>
+						<td>{{movie.rating}}</td>
+						<td>{{movie.releaseYear}}</td>
+						<td>{{movie.length}}</td>
+						<td><button ng-click="deleteMovie(movie._id)">Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+		
+			<script type="text/javascript" src="scripts/script.js"></script>
+		</body>
+		</html>
+
+
+28) Create a remove controller under the postContact controller that just logs the ID
+
+
+
+		'use strict';
+		
+		let moviesApp = angular.module('moviesApp', []);
+		
+		moviesApp.controller('mainController', function($scope, $http) {
+		
+			// $scope.movies = [
+			// 	{
+			// 		title: 'The Terminator',
+			// 		rating: 8.0,
+			// 		releaseYear: 1984,
+			// 		length: 120
+			// 	},
+			// 	{
+			// 		title: 'Iron Man',
+			// 		rating: 7.9,
+			// 		releaseYear: 2008,
+			// 		length: 118
+			// 	},
+			// 	{
+			// 		title: 'Star Wars: Return of the Jedi',
+			// 		rating: 8.3,
+			// 		releaseYear: 1983,
+			// 		length: 102
+			// 	}
+			// ];
+		
+			let getMovies = function() {
+				// Retrieve movie data from server. '/movieList' is the route we'll get data from
+				$http.get('/movies').then(function (response) {
+					
+					// Taking the movie JSON objects from server and assigning to variable
+					$scope.movies = response.data;
+					console.log($scope.movies);
+				});
+			}
+			getMovies();
+		
+			// ng-model from our html file will bind the input values to our
+			// variables here
+			// $scope.addMovie = function() {
+			// 	$scope.movies.push(
+			// 		{
+			// 			name: $scope.movie.name, 
+			// 			rating: $scope.movie.rating, 
+			// 			releaseYear: $scope.movie.releaseYear,
+			// 			length: $scope.movie.length
+			// 		}
+			// 	);
+		
+			// 	clearInputs();
+			// }
+		
+			// $scope.addMovie = function() {
+		
+			// 	// object constructor
+			// 	function Movie(name, rating, releaseYear, length) {
+			// 		this.name = name;
+			// 		this.rating = rating;
+			// 		this.releaseYear = releaseYear;
+			// 		this.length = length;
+			// 	}
+		
+			// 	// new movie is an object which is an instance of the Movie constructor
+			// 	let newMovie = new Movie($scope.movie.name, $scope.movie.rating, $scope.movie.releaseYear, $scope.movie.length);
+			// 	console.log(newMovie);
+		
+			// 	// POST request sent to /movieList
+			// 	$http.post('/movies', newMovie).then(function (response) {
+			// 		console.log(newMovie);
+			// 		console.log(response);
+			// 	});
+		
+			// 	getMovies();
+		
+			// 	// $scope.movies.push(
+			// 	// 	{
+			// 	// 		name: $scope.movie.name, 
+			// 	// 		rating: $scope.movie.rating, 
+			// 	// 		releaseYear: $scope.movie.releaseYear,
+			// 	// 		length: $scope.movie.length
+			// 	// 	}
+			// 	// );
+		
+			// 	clearInputs();
+			// }
+		
+			$scope.addMovie = function() {
+				console.log($scope.movie);
+		
+				$http.post('/movies', $scope.movie).then(function (response) {
+					getMovies();
+					clearInputs();
+				});
+			}
+		
+			$scope.deleteMovie = function(id) {
+				console.log(id);
+			}
+		
+			function clearInputs() {
+				// clear input boxes
+				$scope.movie.name = '';
+				$scope.movie.rating = '';
+				$scope.movie.releaseYear = '';
+				$scope.movie.length = '';
+			}
+		
+		});
+
+
+29. In the server, create a route to handle delete requests
+
+
+		let express = require('express');
+		let app = express();
+		// Mongojs allows us to connect our Node server to a Mongo DB
+		let mongojs = require('mongojs');
+		let db = mongojs('movies2_db', ['movies2_db']);
+		// Body-parser allows us to extract the body of requests sent to the server
+		// It isn't needed for the get request but is needed for post
+		let bodyParser = require('body-parser');
+		let port = process.env.PORT || 3000;
+		
+		// let moviesList = [
+		// 	{
+		// 		name: 'The Terminator',
+		// 		rating: '8.0',
+		// 		releaseYear: '1984',
+		// 		length: '123'
+		// 	},
+		// 	{
+		// 		name: 'Iron Man',
+		// 		rating: '7.9',
+		// 		releaseYear: '2008',
+		// 		length: '120'
+		// 	},
+		// 	{
+		// 		name: 'Star Wars: Return of the Jedi',
+		// 		rating: '8.3',
+		// 		releaseYear: '1983',
+		// 		length: '118'
+		// 	}
+		// ];
+		
+		app.use(express.static(__dirname + '/app/'));
+		app.use(bodyParser.json());
+		
+		// GET /movies endpoint
+		// app.get('/movies', function(request, response) {
+		// 	console.log('Server received GET request from Angular controller');
+		// 	console.log(moviesList);
+		// 	response.json(moviesList);
+		// });
+		
+		// GET /movies endpoint
+		app.get('/movies', function(request, response) {
+		
+			console.log('Server received GET request from Angular controller');
+			
+			// Grabbing all movie objects from db and assigning them to the parameter "docs"
+			db.movies2_db.find(function(error, docs) {
+				console.log(docs);
+				// Responding to GET /movieList requests with the docs in JSON format
+				response.json(docs);
+			});
+		});
+		
+		// POST /movies endpoint
+		app.post('/movies', function (request, response) {
+			// Thanks to body-parser, we can grab the body of the request
+			console.log(request.body);
+			// Grab the object from the body of the request and insert it into the DB
+			db.movies2_db.insert(request.body, function(error, docs) {
+				response.json(docs);
+			});
+		});
+		
+		// DELETE /movies/{id} endpoint
+		app.delete('/movies/:id', function (request, response) {
+			let id = request.params.id; // gets the value of the id from the url
+			console.log(id);
+			db.movies2_db.remove({_id: mongojs.ObjectId(id)}, function (error, document) {
+				response.json(document);
+			});
+		});
+		
+		app.listen(port, function() {
+		    console.log('server starting at http://localhost:' + port);
+		});
+
+
+30. Update the controller to delete movies from the table
+
+
+		'use strict';
+		
+		let moviesApp = angular.module('moviesApp', []);
+		
+		moviesApp.controller('mainController', function($scope, $http) {
+		
+			// $scope.movies = [
+			// 	{
+			// 		title: 'The Terminator',
+			// 		rating: 8.0,
+			// 		releaseYear: 1984,
+			// 		length: 120
+			// 	},
+			// 	{
+			// 		title: 'Iron Man',
+			// 		rating: 7.9,
+			// 		releaseYear: 2008,
+			// 		length: 118
+			// 	},
+			// 	{
+			// 		title: 'Star Wars: Return of the Jedi',
+			// 		rating: 8.3,
+			// 		releaseYear: 1983,
+			// 		length: 102
+			// 	}
+			// ];
+		
+			let getMovies = function() {
+				// Retrieve movie data from server. '/movieList' is the route we'll get data from
+				$http.get('/movies').then(function (response) {
+					
+					// Taking the movie JSON objects from server and assigning to variable
+					$scope.movies = response.data;
+					console.log($scope.movies);
+				});
+			}
+			getMovies();
+		
+			// ng-model from our html file will bind the input values to our
+			// variables here
+			// $scope.addMovie = function() {
+			// 	$scope.movies.push(
+			// 		{
+			// 			name: $scope.movie.name, 
+			// 			rating: $scope.movie.rating, 
+			// 			releaseYear: $scope.movie.releaseYear,
+			// 			length: $scope.movie.length
+			// 		}
+			// 	);
+		
+			// 	clearInputs();
+			// }
+		
+			// $scope.addMovie = function() {
+		
+			// 	// object constructor
+			// 	function Movie(name, rating, releaseYear, length) {
+			// 		this.name = name;
+			// 		this.rating = rating;
+			// 		this.releaseYear = releaseYear;
+			// 		this.length = length;
+			// 	}
+		
+			// 	// new movie is an object which is an instance of the Movie constructor
+			// 	let newMovie = new Movie($scope.movie.name, $scope.movie.rating, $scope.movie.releaseYear, $scope.movie.length);
+			// 	console.log(newMovie);
+		
+			// 	// POST request sent to /movieList
+			// 	$http.post('/movies', newMovie).then(function (response) {
+			// 		console.log(newMovie);
+			// 		console.log(response);
+			// 	});
+		
+			// 	getMovies();
+		
+			// 	// $scope.movies.push(
+			// 	// 	{
+			// 	// 		name: $scope.movie.name, 
+			// 	// 		rating: $scope.movie.rating, 
+			// 	// 		releaseYear: $scope.movie.releaseYear,
+			// 	// 		length: $scope.movie.length
+			// 	// 	}
+			// 	// );
+		
+			// 	clearInputs();
+			// }
+		
+			$scope.addMovie = function() {
+				console.log($scope.movie);
+		
+				$http.post('/movies', $scope.movie).then(function (response) {
+					getMovies();
+					clearInputs();
+				});
+			}
+		
+			$scope.deleteMovie = function(id) {
+				$http.delete('/movies/'+id).then(function(response) {
+					getMovies();
+				});
+			}
+		
+			function clearInputs() {
+				// clear input boxes
+				$scope.movie.name = '';
+				$scope.movie.rating = '';
+				$scope.movie.releaseYear = '';
+				$scope.movie.length = '';
+			}
+		
+		});
+
+
+
+
+
+
+
+
+// PUT REQUEST
+
+
+31. Add edit buttons in each row of the table
+
+
+		<tbody>
+			<tr ng-repeat="movie in movies | orderBy: 'name'">
+				<td>{{movie.name}}</td>
+				<td>{{movie.rating}}</td>
+				<td>{{movie.releaseYear}}</td>
+				<td>{{movie.length}}</td>
+				<td><button ng-click="deleteMovie(movie._id)">Delete</button></td>
+				<td><button ng-click="edit(movie._id)">Edit</button></td>
+			</tr>
+		</tbody>
+
+
+
+32. Add update button to the form
+
+
+		<form ng-submit="addMovie()">
+			<input type="text" placeholder="Title" ng-model="movie.name">
+			<input type="text" placeholder="Rating" ng-model="movie.rating">
+			<input type="text" placeholder="Release Year" ng-model="movie.releaseYear">
+			<input type="text" placeholder="Length" ng-model="movie.length">
+			<button type="submit">Add Movie</button>
+			<button ng-click="putContact()">Update</button>
+		</form>
+
+
+33. In controller.js create an edit(id) that logs the movie's id when the
+	edit button for a movie is clicked
+
+
+
+		'use strict';
+		
+		let moviesApp = angular.module('moviesApp', []);
+		
+		moviesApp.controller('mainController', function($scope, $http) {
+		
+			// $scope.movies = [
+			// 	{
+			// 		title: 'The Terminator',
+			// 		rating: 8.0,
+			// 		releaseYear: 1984,
+			// 		length: 120
+			// 	},
+			// 	{
+			// 		title: 'Iron Man',
+			// 		rating: 7.9,
+			// 		releaseYear: 2008,
+			// 		length: 118
+			// 	},
+			// 	{
+			// 		title: 'Star Wars: Return of the Jedi',
+			// 		rating: 8.3,
+			// 		releaseYear: 1983,
+			// 		length: 102
+			// 	}
+			// ];
+		
+			let getMovies = function() {
+				// Retrieve movie data from server. '/movieList' is the route we'll get data from
+				$http.get('/movies').then(function (response) {
+					
+					// Taking the movie JSON objects from server and assigning to variable
+					$scope.movies = response.data;
+					console.log($scope.movies);
+				});
+			}
+			getMovies();
+		
+			// ng-model from our html file will bind the input values to our
+			// variables here
+			// $scope.addMovie = function() {
+			// 	$scope.movies.push(
+			// 		{
+			// 			name: $scope.movie.name, 
+			// 			rating: $scope.movie.rating, 
+			// 			releaseYear: $scope.movie.releaseYear,
+			// 			length: $scope.movie.length
+			// 		}
+			// 	);
+		
+			// 	clearInputs();
+			// }
+		
+			// $scope.addMovie = function() {
+		
+			// 	// object constructor
+			// 	function Movie(name, rating, releaseYear, length) {
+			// 		this.name = name;
+			// 		this.rating = rating;
+			// 		this.releaseYear = releaseYear;
+			// 		this.length = length;
+			// 	}
+		
+			// 	// new movie is an object which is an instance of the Movie constructor
+			// 	let newMovie = new Movie($scope.movie.name, $scope.movie.rating, $scope.movie.releaseYear, $scope.movie.length);
+			// 	console.log(newMovie);
+		
+			// 	// POST request sent to /movieList
+			// 	$http.post('/movies', newMovie).then(function (response) {
+			// 		console.log(newMovie);
+			// 		console.log(response);
+			// 	});
+		
+			// 	getMovies();
+		
+			// 	// $scope.movies.push(
+			// 	// 	{
+			// 	// 		name: $scope.movie.name, 
+			// 	// 		rating: $scope.movie.rating, 
+			// 	// 		releaseYear: $scope.movie.releaseYear,
+			// 	// 		length: $scope.movie.length
+			// 	// 	}
+			// 	// );
+		
+			// 	clearInputs();
+			// }
+		
+			$scope.addMovie = function() {
+				console.log($scope.movie);
+		
+				$http.post('/movies', $scope.movie).then(function (response) {
+					getMovies();
+					clearInputs();
+				});
+			}
+		
+			$scope.deleteMovie = function(id) {
+				$http.delete('/movies/'+id).then(function(response) {
+					getMovies();
+				});
+			}
+		
+			$scope.edit = function(id) {
+				console.log(id);
+			}
+		
+			function clearInputs() {
+				// clear input boxes
+				$scope.movie.name = '';
+				$scope.movie.rating = '';
+				$scope.movie.releaseYear = '';
+				$scope.movie.length = '';
+			}
+		
+		});
+
+
+34. In controller.js' edit(id), add a get call to retrieve a movie by its _id
+
+
+		$scope.edit = function(id) {
+			// console.log(id);
+			$http.get('/movies/' + id);
+		}
+
+
+35. In server.js create an endpoint to retrieve contacts by passing their _id.
+	For now, just console.log the id.
+
+		// POST /movies endpoint
+		app.post('/movies', function (request, response) {
+			// Thanks to body-parser, we can grab the body of the request
+			console.log(request.body);
+			// Grab the object from the body of the request and insert it into the DB
+			db.movies2_db.insert(request.body, function(error, docs) {
+				response.json(docs);
+			});
+		});
+		
+		// DELETE /movies/{id} endpoint
+		app.delete('/movies/:id', function (request, response) {
+			let id = request.params.id; // gets the value of the id from the url
+			console.log(id);
+			db.movies2_db.remove({_id: mongojs.ObjectId(id)}, function (error, document) {
+				response.json(document);
+			});
+		});
+		
+		// GET /movies/{id} endpoint 
+		app.get('/movies/:id', function (request, response) {
+			let id = request.params.id;
+			console.log(id);
+		});
+		
+		app.listen(port, function() {
+		    console.log('server starting at http://localhost:' + port);
+		});
+
+
+36. In server.js, retrieve that contact object from the db and send it as 
+	a response
+
+
+		// GET /movies/{id} endpoint 
+		app.get('/movies/:id', function (request, response) {
+			let id = request.params.id;
+			console.log(id);
+			db.movies2_db.findOne({_id: mongojs.ObjectId(id)}, function (error, document) {
+				response.json(document);
+			});
+		});
+
+
+37. In controller.js, log the response from the server.
+
+
+		$scope.edit = function(id) {
+			// console.log(id);
+			$http.get('/movies/' + id).then(function (response) {
+				console.log(response.data);
+			});
+		}
+
+
+38. In controller.js, take that response and assign it to $scope.movie in 
+	order to place it in the input fields.
+
+
+		$scope.edit = function(id) {
+			// console.log(id);
+			$http.get('/movies/' + id).then(function (response) {
+				console.log(response.data);
+				$scope.contact = response.data;
+			});
+		}
+
+
+39. Define the putContact() function in controller.js and just log the 
+	movie's id.
+
+
+		$scope.putMovie = function(id) {
+			console.log(id);
+		}
+
+
+40) In controller.js send the put request to the server
+
+
+	$scope.putMovie = function(id) {
+		console.log(id);
+
+		$http.put('/movies/'+id, $scope.movie);
+	}
