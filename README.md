@@ -29,6 +29,13 @@ Student skill levels will vary. At minimum, students should be able to touch typ
 * Must have a completed application which they present at the end of the course. If a student cannot attend the last day, arrangements must be made with the instructor to present on a different day.
 * Must pass final whiteboard interview
 
+## Structure of each day
+- Once you introduce JS, every day should start with a "knowledge check" - an algorithm question to improve student skills. This should never be more than 30 minutes. 
+- Answer questions about the last assignment. If this takes more than 10 minutes, consider answering the question after class or over Slack
+- Provide a brief overview of what you'll cover that day 
+- Complete the lessons you have in mind for the day
+- Leave a few minutes at the end of the class for questions
+
 ## Curriculum Overview
 
 The curriculum is split into two parts. The first 16 days concentrate on frontend and the second half on the backend. The number of days spent on a given topic are flexible as this is largely dependent on the cohort's skill level and aptitude for coding. Therefore, a minimum and maximum number of days for subjects is provided
