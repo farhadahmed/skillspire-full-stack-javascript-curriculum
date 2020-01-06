@@ -1,3 +1,6 @@
+// This app displays some web page and a 404 page if user goes to
+// any page that doesn't exist
+
 let express = require('express');
 let app = express();
 let port = process.env.PORT || 3000;

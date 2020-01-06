@@ -1,3 +1,5 @@
+// This app displays an ordered list from the server
+
 let express = require('express');
 let app = express();
 

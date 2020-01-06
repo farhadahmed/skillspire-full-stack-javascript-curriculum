@@ -1,4 +1,9 @@
-~~Use terminal to create a db called tvCharacters. Create 2 of your favorite TV show characters. Insert them into the db. Display them in a way that's easy to read. Delete one of them. Display them again.~~
+Have the students perform the below task. Give them some time and 
+then complete the steps:
+
+___________________________________________________
+Use terminal to create a db called tvCharacters. Create 2 of your favorite TV show characters. Insert them into the db. Display them in a way that's easy to read. Delete one of them. Display them again.
+___________________________________________________
 
 Step 1: Create the db
 

@@ -1,4 +1,6 @@
-  
+This is a Hello Universe app using NodeJS
+
+
 Setting up a Node app with Express:
 
 1) npm init

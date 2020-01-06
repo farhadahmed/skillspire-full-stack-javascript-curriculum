@@ -1,4 +1,18 @@
-MEAN STACK APP 
+This is a MEAN stack application that movie data in a form and stores the
+data in a database.
+
+In the first version of this app, store objects within the controller
+to show students that data can be stored/retrieved from there.
+
+Then, update the app to store the data in the server.
+
+Lastly, add Mongo to store data there.
+
+
+
+
+
+STEPS FOR THIS MEAN STACK APP 
 
 1. Build the file/folder structure
 2. npm init
