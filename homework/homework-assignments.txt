@@ -1,0 +1,7 @@
+This file contains examples of homeworks that can be assigned. 
+Teachers don't have to stick to these exact assignments but do 
+make sure assignments are relevant to whatever was covered 
+that day.
+
+
+1.
