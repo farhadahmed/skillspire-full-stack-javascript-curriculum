@@ -3,5 +3,75 @@ Teachers don't have to stick to these exact assignments but do
 make sure assignments are relevant to whatever was covered 
 that day.
 
+In the first couple of days, students can just copy and paste
+their code. But they should quickly learn how to create gists
+on GitHub. Homework should then be submissions should then be
+a link to their gist on GitHub. Once they learn how to use
+Git, they should then create repositories in GitHub - homework
+submissions should be a link to their GitHub repo.
 
-1.
+
+1. Resume
+
+Use what you've learned to create a resume with HTML.
+
+Create a header containing your name
+Use sub-headers to create the following sections: objective, skills, experience, education
+Use paragraph elements to fill out these sections
+Use bold and italics when/if it's appropriate to do so.
+ 
+
+To submit, copy your code from your text editor and paste here.
+
+
+
+
+
+
+2. Resume 2.0
+
+Update the following items in your resume:
+
+- Use unordered lists to write your skills
+
+- Use lists in any place where you think they might be useful
+
+- Add an image (preferably an image of yourself)
+
+- Add a link to your LinkedIn account
+
+- Add a link to your GitHub account
+
+- Add audio with a controller and autoplay turned on
+
+- Feel free to add anything else you like.
+
+- Add color to some of your text
+
+- Change font family of your header and sub headers
+
+- Your CSS file must be separate from your HTML file
+
+
+
+
+
+
+
+
+3. Rebuild a Website
+
+Choose a website and recreate its HTML and CSS. Use the right container 
+names (header, nav, etc).
+
+
+
+
+
+
+4. Use JS to update HTML
+
+Create an HTML page with just an <h1>.  Use JavaScript to create 3 sentences on separate lines.
+
+On another line, use JS to generate a random whole number and display it within a <p>
+ 
