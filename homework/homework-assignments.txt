@@ -139,6 +139,18 @@ is used for which categories of expenses.
 
 
 
+
+8. Rock Paper Scissors
+
+Create a rock, paper, scissors game. Allow the user to select from 
+3 images representing a rock, paper, or scissors. Once selected,
+use a random number generator to have the computer select rock, paper,
+or scissors. Display an image for the computer's choice and tell the
+user whether they won or lost.
+
+
+
+
 9. Using forms to access objects
 
 Create 3 person objects each with 3 properties: name, number, and email.
