@@ -1,3 +1,6 @@
+Homework Assignmend Ideas
+
+
 This file contains examples of homeworks that can be assigned. 
 Teachers don't have to stick to these exact assignments but do 
 make sure assignments are relevant to whatever was covered 
@@ -75,3 +78,142 @@ Create an HTML page with just an <h1>.  Use JavaScript to create 3 sentences on 
 
 On another line, use JS to generate a random whole number and display it within a <p>
  
+
+
+
+5. Guessing Game Beta
+
+Generate a random number and then prompt the user to guess the number. Tell the user whether they got the answer correct.
+
+Your assignment must have an HTML file and a separate JS file attached to the HTML file. Inclue some CSS
+
+For more points, if the user's guess is incorrect, tell them how many digits away from the correct answer they were.  For example, if the correct answer was 7 and they guessed 3, your app should respond with, "Wrong. You're 4 numbers away from the correct answer."
+
+
+
+
+6. Greet the User
+
+Have the user enter their first name and last name in input boxes. When
+they click a submit button, display text welcoming the user by their name.
+If the user leaves either input box blank, display text telling them they 
+need to insert both their first and last name.
+
+
+
+
+7. Guessing Game 1.0
+
+Update your guessing game.
+
+Instead of using prompt() and console.log(), create a proper form in HTML. Get user input by using an input box, and give output through a <p> element.
+
+
+
+
+
+8. Salary Calculator
+
+Simplest version:
+Create an HTML page that allows a user to enter hourly salary. Convert
+it into annual salary and presents it on the page.
+
+Advanced:
+Create an HTML page that allows a user to enter the following
+
+- hourly salary
+- tax rate as a percentage
+- unpaid days off through the year
+- estimated monthly expenses
+	- bills
+	- groceries
+	- entertainment
+	- shopping
+	- gas
+	- car maintenance
+
+Display annual net salary (gross salary minus taxes). Also use HTML5's
+Canvas to display a pie chart showing what percentage of monthly income
+is used for which categories of expenses.
+
+
+
+
+9. Using forms to access objects
+
+Create 3 person objects each with 3 properties: name, number, and email.
+
+Create an HTML page with an input box and a button. When the user inputs an object's name property and clicks the button, they should see that object's properties appear in 3 <p></p> elements.
+
+
+
+
+
+
+10. Session Storage Contact App
+
+Create a form that allows you to create new contacts and store them in
+sessionStorage. Display the contacts and their properties within a table.
+
+
+
+
+
+11. LinkedIn & Resume
+
+Add a picture that clearly shows your face
+Add a headline and current position that is technical
+Add a summary that describes your passion for the field and why a company should be interested in you
+Update your work experience. Emphasize any technical aspects of your past jobs.
+Update your skills to include HTML, CSS, JavaScript, Bash, GitHub, and any other skills you've learned.
+Find at least four tech companies on LinkedIn and follow them
+Find at least 2 groups about JavaScript and follow them.
+
+
+
+
+
+12. GitHub Practice
+
+Create a new repository in GitHub called html-and-css.  Your repository must contain the following files:
+
+README.md - This can be one or two sentences and must be grammatically correct with proper spelling and punctuation.
+
+index.html - This must contain at least some basic HTML
+
+styles.css - This must contain at least some basic CSS
+ 
+
+Remember that potential employers will see your code so it must be clean and presentable.  For bonus points, create branches for each part of your code.
+
+
+
+
+
+
+13. Create a server
+
+Create a server using NodeJS. Create a route with a response that says "This is my universe!" In order to pass this assignment, it must be a repository instead of a gist on GitHub.  To submit your homework, provide a link to the repository.
+
+
+
+
+
+14. Account Creation
+
+
+Create a user account creation page and a login page. On the accoun creation
+page, allow the user to enter their email address and create a (unique) 
+username and a password. Store the credentials somewhere such as local
+storage. If a enters correct credentials in the login page, give them a 
+welcome message.
+
+
+
+
+15. Angular Notes App
+
+Use Angular to create an app that allows users to enter notes and
+display the notes in a table. Add a delete button and edit button
+for each note that deletes or edits the notes.
+
