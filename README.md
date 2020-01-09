@@ -30,11 +30,13 @@ Student skill levels will vary. At minimum, students should be able to touch typ
 * Must pass final whiteboard interview
 
 ## Structure of each day
-- Once you introduce JS, every day should start with a "knowledge check" - an algorithm question to improve student skills. This should never be more than 30 minutes. 
-- Answer questions about the last assignment. If this takes more than 10 minutes, consider answering the question after class or over Slack
-- Provide a brief overview of what you'll cover that day 
-- Complete the lessons you have in mind for the day
-- Leave a few minutes at the end of the class for questions
+* Once you introduce JS, every day should start with a "knowledge check" - an algorithm question to improve student skills. This should never be more than 30 minutes. 
+	* Start of super simple. Remember that most of your students never wrote a line of code before.
+	* As students advance, take question ideas from leetcode, codewars, and similar sites.
+* Answer questions about the last assignment. If this takes more than 10 minutes, consider answering the question after class or over Slack
+* Provide a brief overview of what you'll cover that day 
+* Complete the lessons you have in mind for the day
+* Leave a few minutes at the end of the class for questions
 
 ## Curriculum Overview
 

@@ -140,7 +140,7 @@ is used for which categories of expenses.
 
 
 
-8. Rock Paper Scissors
+9. Rock Paper Scissors
 
 Create a rock, paper, scissors game. Allow the user to select from 
 3 images representing a rock, paper, or scissors. Once selected,
@@ -151,7 +151,7 @@ user whether they won or lost.
 
 
 
-9. Using forms to access objects
+10. Using forms to access objects
 
 Create 3 person objects each with 3 properties: name, number, and email.
 
@@ -162,7 +162,7 @@ Create an HTML page with an input box and a button. When the user inputs an obje
 
 
 
-10. Session Storage Contact App
+11. Session Storage Contact App
 
 Create a form that allows you to create new contacts and store them in
 sessionStorage. Display the contacts and their properties within a table.
@@ -171,7 +171,7 @@ sessionStorage. Display the contacts and their properties within a table.
 
 
 
-11. LinkedIn & Resume
+12. LinkedIn & Resume
 
 Add a picture that clearly shows your face
 Add a headline and current position that is technical
@@ -185,7 +185,7 @@ Find at least 2 groups about JavaScript and follow them.
 
 
 
-12. GitHub Practice
+13. GitHub Practice
 
 Create a new repository in GitHub called html-and-css.  Your repository must contain the following files:
 
@@ -203,7 +203,7 @@ Remember that potential employers will see your code so it must be clean and pre
 
 
 
-13. Create a server
+14. Create a server
 
 Create a server using NodeJS. Create a route with a response that says "This is my universe!" In order to pass this assignment, it must be a repository instead of a gist on GitHub.  To submit your homework, provide a link to the repository.
 
@@ -211,7 +211,7 @@ Create a server using NodeJS. Create a route with a response that says "This is 
 
 
 
-14. Account Creation
+15. Account Creation
 
 
 Create a user account creation page and a login page. On the accoun creation
@@ -223,7 +223,7 @@ welcome message.
 
 
 
-15. Angular Notes App
+16. Angular Notes App
 
 Use Angular to create an app that allows users to enter notes and
 display the notes in a table. Add a delete button and edit button
