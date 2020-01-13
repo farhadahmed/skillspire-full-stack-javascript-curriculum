@@ -9,12 +9,20 @@ This curriculum should be followed by all Skillspire instructors teaching the 32
 Beyond teaching the curriculum, your responsibilites are as follows:
 
 * Remain current on industry standards and best practices. This includes knowledge of popular frameworks.
-* Use Canvas to assign homework
+* Use Canvas to assign homework.
 * Use Canvas to grade homework (If you don't have time to grade assignments, this must be approved by Yasmin prior to the course starting. In some situations, a TA may be able to handle the grading for you.)
 * Use Canvas to take student attendance.
 * Use Slack to communicate with students and answer questions outside class
 	* If you're sick or class is cancelled due to a holiday, inform students a day 	before
 
+
+### Canvas
+* Each instructor will need to create an account at canvas.instructure.com
+* At the beginning of each cohort, do the following:
+	* Create the course in Canvas
+	* Add your students to the course
+	* Add your TA if you have one
+	* Add Yasmin and Sarah Khalidi as observers
 
 ### Who we cater to
 Our students come from various backgrounds and ethnicities. A large percentage will be underprivileged working at least one full-time job. Still, they are expected to spend at least 10 hours studying each week outside of class. Most students will come into this class uncertain of whether they 
@@ -23,13 +31,16 @@ Student skill levels will vary. At minimum, students should be able to touch typ
 
 ## Student Requirements for Passing
 
-* Cannot miss more than 5 total days of class
-* Cannot miss more than 3 consecutive days
+* Cannot miss more than 3 total days of class (Instructor can make exceptions)
+* Cannot miss more than 2 consecutive days
 * Must receive minimum of 7/10 on each individual assignment
 * Must have a completed application which they present at the end of the course. If a student cannot attend the last day, arrangements must be made with the instructor to present on a different day.
 * Must pass final whiteboard interview
 
+## Tools Students Need
+
 ## Structure of each day
+* Take attendance at some point during each class and enter it in Canvas
 * Once you introduce JS, every day should start with a "knowledge check" - an algorithm question to improve student skills. This should never be more than 30 minutes. 
 	* Start of super simple. Remember that most of your students never wrote a line of code before.
 	* As students advance, take question ideas from leetcode, codewars, and similar sites.
@@ -37,6 +48,7 @@ Student skill levels will vary. At minimum, students should be able to touch typ
 * Provide a brief overview of what you'll cover that day 
 * Complete the lessons you have in mind for the day
 * Leave a few minutes at the end of the class for questions
+* At the end of each day post homework on Canvas and post your code on GitHub
 
 ## Curriculum Overview
 
@@ -69,6 +81,11 @@ Topics
 * Task automation (optional)
 	* Use grunt, gulp or other popular automation framework
 
-### Final Project and Whiteboard Interview - Day 32
+### Final Project and Whiteboard Interview - Days 29 - 32
 
+* In the last two weeks of the course, students should concentrate completing their final projects.
 * The final day should begin with presentations. Once presentations are done, bring students one at a time into the room for their whiteboard interview. Expect each session to take 1 hour. Depending on the size of the class, this may have to be done over multiple days.
+
+
+## Final Project
+There are no set rules for the project. Students should come up with an application idea and work in groups of 2 or more.
