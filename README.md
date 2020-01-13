@@ -39,6 +39,11 @@ Student skill levels will vary. At minimum, students should be able to touch typ
 
 ## Tools Students Need
 
+* Slack for communication
+* An account in canvas.instructure.com
+* A GitHub account
+* An IDE - instructor can choose but it should be a popular IDE.
+
 ## Structure of each day
 * Take attendance at some point during each class and enter it in Canvas
 * Once you introduce JS, every day should start with a "knowledge check" - an algorithm question to improve student skills. This should never be more than 30 minutes. 
