@@ -71,7 +71,7 @@ Topics
 		* React
 		* jQuery
 
-### Backend - Days 17-31
+### Backend - Days 17-27
 
 * NodeJS: 2 days
 * MongoDB: 1 day
@@ -81,7 +81,7 @@ Topics
 * Task automation (optional)
 	* Use grunt, gulp or other popular automation framework
 
-### Final Project and Whiteboard Interview - Days 29 - 32
+### Final Project and Whiteboard Interview - Days 28 - 32
 
 * In the last two weeks of the course, students should concentrate completing their final projects.
 * The final day should begin with presentations. Once presentations are done, bring students one at a time into the room for their whiteboard interview. Expect each session to take 1 hour. Depending on the size of the class, this may have to be done over multiple days.
