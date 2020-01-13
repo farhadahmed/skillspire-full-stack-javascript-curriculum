@@ -89,3 +89,16 @@ Topics
 
 ## Final Project
 There are no set rules for the project. Students should come up with an application idea and work in groups of 2 or more.
+
+### Next Steps
+
+On the last day, be sure to talk to students about their next steps to get their first tech job. 
+
+* Have a completed resume reviewed by an instructor
+* Have a LinkedIn profile reviewed by an instructor
+* Have at least 2 projects on GitHub that show off your skills
+
+To get employed, students should be doing the following:
+
+* Apply to 3 jobs every week
+* Every day, alternate between improving algorith skills and working on a project
