@@ -43,6 +43,7 @@ Student skill levels will vary. At minimum, students should be able to touch typ
 * An account in canvas.instructure.com
 * A GitHub account
 * An IDE - instructor can choose but it should be a popular IDE.
+* Students with Windows devices should install Git for Windows: https://gitforwindows.org/
 
 ## Structure of each day
 * Take attendance at some point during each class and enter it in Canvas
