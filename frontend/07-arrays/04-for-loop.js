@@ -42,8 +42,8 @@ for (let i = 0; i <= 10; i++) {
 
 // Use contact list as example.
 // Here's how it was done with a while loop:
-//				   0		1 		 2 			3
-let contacts = ['Ahmed', 'Abdi', 'Mohamed', 'Keyse'];
+//		  0	   1 	  2 	     3
+let contacts = ['Ahmed', 'Abdi', 'Mohamed', 'Franks'];
 
 let count = 0;
 while (count < contacts.length) {
